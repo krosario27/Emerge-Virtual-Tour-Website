@@ -1,0 +1,520 @@
+/* General resets and typography */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, a {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.10rem;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Navigation styling */
+nav {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px 40px;
+    background-color: #263BFC;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    height: 30px;
+}
+
+nav ul {
+    width: 90%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 40px;
+    margin-right: 20px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 10px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.25rem;
+    position: relative;
+}
+
+nav a:hover {
+    color: white;
+}
+
+#title a {
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+#title a:hover::after {
+    content: none; 
+}
+
+nav a[href="#"]:hover {
+    background-color: transparent; 
+}
+
+nav a:not([href="#title"]):hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white; 
+}
+
+nav li:first-child {
+    margin-right: auto; 
+}
+
+nav a[href="#title"] {
+    background-color: transparent !important; 
+}
+
+nav ul > li > a {
+    position: relative; 
+}
+
+nav ul > li > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; 
+    height: 2px;
+    background-color: blue; 
+    transition: width 0.3s ease; 
+}
+
+nav ul > li > a:hover::after {
+    width: 100%; 
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.308);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+nav .sidebar > li > a:hover {
+    color: black; 
+}
+
+.sidebar li {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.sidebar a {
+    color: black;
+    font-size: 1.30rem;
+    font-weight: 500;
+    width: 100%;
+}
+
+nav .sidebar > li > a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: blue; 
+}
+
+nav .sidebar > li > a {
+    position: relative; 
+}
+
+nav .sidebar > li > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; 
+    height: 2px;
+    background-color: blue; 
+    transition: width 0.3s ease; 
+}
+
+nav .sidebar > li > a:hover::after {
+    width: 100%; 
+}
+
+.menu-button {
+    display: none;
+}
+
+/* Container and main styling */
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container > h1 {
+    text-align: center;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.container > h3 {
+    margin-top: 1rem;
+}
+
+.container > h2 {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-banner {
+    width: 100%;
+    height: 300px; 
+    min-height: 200px; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; 
+}
+
+.image-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.section-break {
+    width: 100%;
+    height: 2px;
+    background-color: lightgrey;
+    margin: 35px 0;
+}
+
+h1, h4 {
+    display: block;
+    width: 100%;
+}
+
+.student-link {
+    margin-bottom: 60px;
+    text-align: end;
+}
+
+.student-link a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+student-link a:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    transform: translateX(5px); /* Move slightly to the right on hover */
+}
+
+student-link a:active {
+    transform: translateX(2px); /* Move slightly to the right when active */
+}
+
+
+
+footer {
+    width: 100%; /* Adjust height as needed */
+    padding: 1rem;
+    background-color: #263BFC;
+}
+
+footer img {
+    height: 90px;
+    margin-left: 80px;
+}
+
+iframe {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Virtual Tour Landing Page Styling */
+.virtual-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.virtual-container > .section-break {
+    margin-top: 60px;
+    background-color: lightgrey;
+    width: 100%;
+}
+
+.virtual-container > h1 {
+    text-align: center;
+}
+
+.wrapper {
+    margin-bottom: 70px;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    margin-top: 50px;
+    width: 100%;
+    position: relative;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.281);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.content:hover {
+    opacity: 2;
+}
+
+.content h2 {
+    font-size: 2rem;
+    color: rgb(255, 252, 252);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.label {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.label h2 {
+    font-size: 1.2rem; 
+    margin-bottom: 5px; 
+}
+
+.label p {
+    font-size: 1rem; 
+    color: #777; 
+}
+
+.students-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.student-card {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+} 
+
+.student-info {
+    text-align: left;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.student-info h2 {
+    margin: 0 0 10px;
+}
+
+.student-info h3 {
+    font-style: italic;
+    margin: 0 0 10px;
+    color: #555;
+}
+
+.student-info p {
+    margin: 0;
+    color: #666;
+}
+
+/* Search form styling */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+
+    nav li {
+        margin-right: 10px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+}
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media(min-width: 800px) {
+    .wrapper {
+        margin-bottom: 60px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .option {
+        flex: 0 0 48%;
+    }
+
+    .image {
+        width: 100%;
+        height: 400px;
+    }
+
+    .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .label h2 {
+        font-size: 1rem;
+    }
+
+
+    footer img {
+        height: 90px;
+        margin-left: 120px;
+    }
+
+    .student-card {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .student-card img {
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    } 
+    
+    .student-info {
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 0;
+        flex: 1;
+    }
+}
+
+@media(min-width: 1500px) {
+    .container {
+        max-width: 1100px;
+    }
+
+    .container p {
+        line-height: 1.8;
+    }
+
+    .student-info {
+        max-width: 100%;
+    }
+}
+
+
+

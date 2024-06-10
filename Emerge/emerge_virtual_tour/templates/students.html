@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Students</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <!-- Navigation content -->
+    </nav>
+
+    <main>
+        <div class="students-container">
+            <h1>Students</h1>
+            <div class="search-form">
+                <input type="text" id="searchInput" placeholder="Search by pathway" onkeyup="filterStudents()">
+            </div>
+            <div class="section-break"></div>
+
+            {% for student in students %}
+            <div class="student-card" data-pathway="{{ student.pathway|lower }}">
+                <img src="{{ student.image.url }}" alt="{{ student.full_name }}">
+                <div class="student-info">
+                    <h2>{{ student.full_name }}</h2>
+                    <h3>{{ student.pathway }}</h3>
+                    <p>{{ student.bio }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <a href="https://www.ara.ac.nz/" target="_blank">
+            <img src="{% static 'images/Ara Primary Logo_White.png' %}" alt="Ara Logo">
+        </a>
+    </footer>
+
+    <script>
+        function filterStudents() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const studentCards = document.getElementsByClassName('student-card');
+
+            for (let i = 0; i < studentCards.length; i++) {
+                const pathway = studentCards[i].getAttribute('data-pathway');
+                if (pathway.includes(input)) {
+                    studentCards[i].style.display = '';
+                } else {
+                    studentCards[i].style.display = 'none';
+                }
+            }
+        }
+
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
