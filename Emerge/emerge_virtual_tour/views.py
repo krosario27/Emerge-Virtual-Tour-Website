@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Student
 
 def home(request):
@@ -16,3 +16,7 @@ def vr_sroom(request):
 
 def vr_xblock(request):
     return render(request, 'vr_xblock.html')
+
+def student_detail(request, id):
+    student = get_object_or_404(Student, id=id)
+    return render(request, 'student_detail.html', {'student': student})

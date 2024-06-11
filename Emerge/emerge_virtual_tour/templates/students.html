@@ -12,26 +12,45 @@
 </head>
 <body>
     <nav>
-        <!-- Navigation content -->
+        <ul class="sidebar">
+            <li id="close-menu" onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#00000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a class="sidebar-link" href="{% url 'index' %}">Home</a></li>
+            <li><a class="sidebar-link" href="{% url 'students' %}">Students</a></li>
+            <li><a class="sidebar-link" href="{% url 'virtual_tour_landing' %}">Virtual Tour</a></li>           
+        </ul>
+
+        <ul>
+            <li id="title"><a href="https://www.ara.ac.nz/news-and-events/events/emerge-2023/">&lt;Emerge&gt;</a></li>
+            <li class="hideOnMobile"><a href="{% url 'index' %}">Home</a></li>
+            <li class="hideOnMobile"><a href="{% url 'students' %}">Students</a></li>
+            <li class="hideOnMobile"><a href="{% url 'virtual_tour_landing' %}">Virtual Tour</a></li>  
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>         
+        </ul>
     </nav>
 
     <main>
         <div class="students-container">
             <h1>Students</h1>
-            <div class="search-form">
-                <input type="text" id="searchInput" placeholder="Search by pathway" onkeyup="filterStudents()">
+            <div class="search-wrapper">
+                <div class="search-form">
+                    <input type="text" id="searchInput" placeholder="Search students" onkeyup="filterStudents()">
+                </div>
             </div>
             <div class="section-break"></div>
 
             {% for student in students %}
+            
             <div class="student-card" data-pathway="{{ student.pathway|lower }}">
-                <img src="{{ student.image.url }}" alt="{{ student.full_name }}">
-                <div class="student-info">
-                    <h2>{{ student.full_name }}</h2>
-                    <h3>{{ student.pathway }}</h3>
-                    <p>{{ student.bio }}</p>
-                </div>
+                <a href="{% url 'student_detail' student.id %}">
+                    <img src="{{ student.image.url }}" alt="{{ student.full_name }}">
+                    <div class="student-info">
+                        <h2>{{ student.full_name }}</h2>
+                        <h3>{{ student.pathway }}</h3>
+                        <p>{{ student.bio }}</p>
+                    </div>
+                </a>
             </div>
+    
             {% endfor %}
         </div>
     </main>
@@ -43,13 +62,17 @@
     </footer>
 
     <script>
+
+
         function filterStudents() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const studentCards = document.getElementsByClassName('student-card');
-
+    
             for (let i = 0; i < studentCards.length; i++) {
-                const pathway = studentCards[i].getAttribute('data-pathway');
-                if (pathway.includes(input)) {
+                const pathway = studentCards[i].getAttribute('data-pathway').toLowerCase();
+                const studentName = studentCards[i].querySelector('h2').innerText.toLowerCase();
+    
+                if (pathway.includes(input) || studentName.includes(input)) {
                     studentCards[i].style.display = '';
                 } else {
                     studentCards[i].style.display = 'none';

@@ -7,4 +7,5 @@ urlpatterns = [
     path("students/", views.students, name="students"),
     path("vr_sroom/", views.vr_sroom, name="vr_sroom"),
     path("vr_xblock/", views.vr_xblock, name="vr_xblock"),
+    path('student/<int:id>/', views.student_detail, name='student_detail'),
 ]

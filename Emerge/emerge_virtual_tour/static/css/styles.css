@@ -408,21 +408,77 @@ iframe {
     color: #666;
 }
 
-/* Search form styling */
+
 .search-form {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    width: 75%;
+    width: 300px;
+    margin-top: 40px;
 }
 
 .search-form input {
-    width: 100%;
+    width: 250px;
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1.5px solid #4437dc;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.student-card a {
+    text-decoration: none;
+}
+
+.section-break {
+    border-top: 2px solid #ccc;
+    margin: 20px 0;
+}
+
+.student-detail-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.student-detail-container h1 {
+    margin-top: 20px;
+}
+.student {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.student img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+
+
+.student h1 {
+    margin: 10px 0 5px;
+}
+
+.student h2 {
+    margin: 0 0 10px;
+    color: #666;
+}
+
+#project-poster {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 
@@ -488,6 +544,8 @@ iframe {
         margin-bottom: 20px;
     }
 
+
+
     .student-card img {
         width: 200px;
         height: auto;
@@ -500,6 +558,64 @@ iframe {
         margin-top: 0;
         flex: 1;
     }
+
+    .search-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+    }
+
+    .search-form {
+        width: 1000px;
+    }
+    
+    .search-form input {
+        width: 300px;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1.5px solid #4437dc;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-card a:hover {
+        text-decoration: none;
+    }
+
+    .student-card a {
+        display: flex;
+        flex-direction: row;
+        color: inherit; /* Ensures text color inside the card doesn't change */
+        text-decoration: none; /* Removes underline from links */
+    }
+
+    .student {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
+    .student {
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .student img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 20px;
+    }
+
+    .student-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
 }
 
 @media(min-width: 1500px) {
@@ -514,6 +630,54 @@ iframe {
     .student-info {
         max-width: 100%;
     }
+
+
+    .search-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+    }
+
+    .search-form {
+        width: 1000px;
+    }
+    
+    .search-form input {
+        width: 24rem;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1.5px solid #4437dc;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-card a:hover {
+        text-decoration: none;
+    }
+
+    .student {
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .student img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 20px;
+    }
+
+    .student-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+
+
 }
 
 
