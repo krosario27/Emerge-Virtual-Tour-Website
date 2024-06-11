@@ -265,12 +265,15 @@ student-link a:active {
 footer {
     width: 100%; /* Adjust height as needed */
     padding: 1rem;
+    padding-bottom: 20px;
     background-color: #263BFC;
 }
 
 footer img {
     height: 90px;
     margin-left: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 iframe {
