@@ -1,1 +1,0 @@
-web: gunicorn Emerge.wsgi:application --log-file -
